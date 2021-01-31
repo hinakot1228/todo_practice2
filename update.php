@@ -1,5 +1,4 @@
 <?php
-
 // ファイルの読み込み
 require_once('Models/Task.php');
 
