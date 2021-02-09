@@ -8,7 +8,7 @@ $password = $_POST['password'];
 $currentTime = date("Y/m/d H:i:s");
 
 // 3. DBへのデータ保存
-$users = new Usser();
+$users = new User();
 $users->findByEmail([$email, $password]);
 
 // リダイレクト
