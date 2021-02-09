@@ -1,11 +1,10 @@
 <?php
     // サインイン：既に会員である場合
 
-    // 1. ファイルの読み込み
-    require_once('Models/User.php');
-
     // セッションを開始する
     session_start();
+    // 1. ファイルの読み込み
+    require_once('Models/User.php');
 
     // 2. データの受け取り
     $email = $_POST['email'];
@@ -32,4 +31,8 @@
     }
     echo $msg;
     echo $link;
+
+    // リダイレクト
+    header('location:index.php');
+    exit;   
 ?>

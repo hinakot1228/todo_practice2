@@ -31,6 +31,7 @@
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">SIGN IN</button>
                     </div>
+                    <p>新規登録の方は<a href="signupForm.php">こちら</a></p>
                 </form>
             </div>
         </div>
