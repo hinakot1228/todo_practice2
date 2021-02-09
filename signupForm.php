@@ -31,6 +31,7 @@
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">REGISTER</button>
                     </div>
+                    <p>すでに登録済みの方は<a href="signinForm.php">こちら</a></p>
                 </form>
             </div>
         </div>
