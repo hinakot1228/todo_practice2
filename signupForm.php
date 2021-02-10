@@ -23,14 +23,18 @@
             <div class="col-12">
                 <form action="signup.php" method="post">
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" placeholder="email">
+                        <input type="text" class="form-control" name="name" placeholder="name" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" placeholder="password">
+                        <input type="email" class="form-control" name="email" placeholder="email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" name="password" placeholder="password" required>
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">REGISTER</button>
                     </div>
+                    <p>すでに登録済みの方は<a href="signinForm.php">こちら</a></p>
                 </form>
             </div>
         </div>
