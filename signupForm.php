@@ -23,6 +23,9 @@
             <div class="col-12">
                 <form action="signup.php" method="post">
                     <div class="form-group">
+                        <input type="text" class="form-control" name="name" placeholder="name" required>
+                    </div>
+                    <div class="form-group">
                         <input type="email" class="form-control" name="email" placeholder="email" required>
                     </div>
                     <div class="form-group">

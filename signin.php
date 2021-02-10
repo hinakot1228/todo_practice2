@@ -1,10 +1,9 @@
 <?php
-    // サインイン：既に会員である場合
-
-    // セッションを開始する
-    session_start();
     // 1. ファイルの読み込み
     require_once('Models/User.php');
+    
+    // セッションを開始する
+    session_start();
 
     // 2. データの受け取り
     $email = $_POST['email'];
@@ -13,9 +12,9 @@
 
     // 3. DBへのデータ保存
     $user = new User();
-    $user->login($email, $passoword, $currentTime); 
+    $user->login($email, $password); 
 
     // リダイレクト
-    header('location:index.php');
-    exit;   
+    // header('location:index.php');
+    // exit;   
 ?>

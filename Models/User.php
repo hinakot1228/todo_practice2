@@ -6,60 +6,55 @@ class User extends Model
 {
     protected $table = 'users';
 
-    // * (ユーザーを新規作成するメソッドの中身を追加する)
-    public function login($email, $passoword, $currentTime)
+    public function login($email, $password)
     {
-        // セッションを開始する
-        session_start();
-        $sql = "SELECT * FROM users WHERE email = :email";
-        $stmt = $this->db_manager->$dbh->prepare($sql);
+        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM users WHERE email = :email');
         $stmt->bindValue(':email', $email);
         $stmt->execute();
 
         $member = $stmt->fetch();
     
         // 指定したハッシュがパスワードに一致しているかチェック
-        if (password_verify($_POST['password'], $member['password']){
+        if (password_verify($password, $member['password']))
+        {
             // DBのユーザー情報をセッションに保存
-            // $_SESSION['id'] = $member['id'];
-            // $_SESSION['email'] = $member['email'];
-            $msg = 'ログインしました。';
-            $link = '<a href="index.php">ホーム</a>';
+            $_SESSION['id'] = $member['id'];
+            $_SESSION['name'] = $member['name'];
+            $_SESSION['email'] = $member['email'];
+            $msg = $member['name'] . '様、こんにちは。ログインしました。';
+            $link = '<a href="index.php">トップページ</a>';
         } else {
             $msg = 'メールアドレスもしくはパスワードが間違っています。';
-            $link = '<a href="signinFrom.php">ホーム</a>';
+            $link = '<a href="signinForm.php">戻る</a>';
         }
         echo $msg;
         echo $link;
     }
-
-    // * (emailをもとにユーザーを取得するメソッド中身を追加する)
+    
     // signup.phpで呼び出す関数
-
-    public function findByEmail($email, $password, $currentTime)
+    public function findByEmail ($name, $email, $password)
     {
         // フォームに入力されたemailで既に登録されていないかチェック
-        $sql = "SELECT * FROM users WHERE email = :email";
-        $stmt = $this->db_manager->dbh->prepare($sql);
+        $stmt = $this->db_manager->dbh->prepare('SELECT * FROM users WHERE email = :email');
+
         $stmt->bindValue(':email', $email);
         $stmt->execute();
 
         $member = $stmt->fetch();
 
-        
         if ($member['email'] === $email) {
             $msg = '同じメールアドレスが存在します。';
             $link = '<a href="signupForm.php">戻る</a>';
         }
          else {
             // 登録されていなければinsert
-            $sql = "INSERT INTO users(email, password) VALUES (:email, :password)";
-            $stmt = $this->db_manager->dbh->prepare($sql);
+            $stmt = $this->db_manager->dbh->prepare('INSERT INTO users(name, email, password) VALUES (:name, :email, :password)');
+            $stmt->bindValue(':name', $name);
             $stmt->bindValue(':email', $email);
             $stmt->bindValue(':password', $password);
             $stmt->execute();
-            $msg = '会員登録が完了しました';
-            $link = '<a href="signupForm.php">ログインページ</a>';
+            $msg = '会員登録が完了しました。';
+            $link = '<a href="index.php">トップページ</a>';
         }
         echo $msg;
         echo $link;

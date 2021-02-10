@@ -1,7 +1,9 @@
 <?php
-// タスクの一覧表示機能
+session_start();
+// タスクの一覧表示機能：READ機能
 // ファイルの読み込み
 require_once('Models/Task.php');
+require_once('Models/User.php');
 require_once('function.php');
 
 // データの取得
@@ -9,7 +11,17 @@ $task = new Task();
 $tasks = $task->getAll();
 // var_dump($tasks);
 
+
+
+if (isset($_SESSION['id'])){
+    $name = $_SESSION['name'];
+    $msg = 'こんにちは、' . $name . '様';
+} else {
+    $msg = 'こんにちは、ゲスト様';
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,14 +42,14 @@ $tasks = $task->getAll();
                     <ul class="nav nav-pills">
                         <li class="nav-item">
                             <a class="nav-link text-light">
-                                <!--ユーザーがログインしていればEmailを表示する -->
+                                <p><?php echo $msg; ?></p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="create.php">Create</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="signinForm.php">Sign in</a>
+                            <a class="nav-link text-light" href="signupForm.php">Sign up</a>
                         </li>
                         <li class="nav-item">                            
                             <a class="nav-link text-light" href="signout.php">Sign out</a>
