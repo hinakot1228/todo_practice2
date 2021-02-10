@@ -23,10 +23,10 @@
             <div class="col-12">
                 <form action="signin.php" method="post">
                     <div class="form-group">
-                        <input type="email" class="form-control" name="email" placeholder="email">
+                        <input type="email" class="form-control" name="email" placeholder="email" required>
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" name="password" placeholder="password">
+                        <input type="password" class="form-control" name="password" placeholder="password"required>
                     </div>
                     <div class="d-flex justify-content-end">
                         <button type="submit" class="btn btn-primary">SIGN IN</button>
