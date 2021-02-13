@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL,
+  `name` varchar(12) NOT NULL,
   `email` varchar(90) NOT NULL,
   `password` text NOT NULL,
   `created` datetime NOT NULL
@@ -37,8 +38,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- テーブルのデータのダンプ `users`
 --
 
-INSERT INTO `users` (`id`, `email`, `password`, `created`) VALUES
-(1, 'テスト', 'Hello oneline_bbs!!', '2016-01-01 00:00:00');
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `created`) VALUES
+(1, 'aaa', 'sample@gmail.com', 'aaa', '2016-01-01 00:00:00');
 
 --
 -- Indexes for dumped tables
