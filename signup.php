@@ -6,11 +6,15 @@ require_once('Models/User.php');
 $name = $_POST['name'];
 $email = $_POST['email'];
 $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-$currentTime = date("Y/m/d H:i:s");
+// $currentTime = date("Y/m/d H:i:s");
+// var_dump($name);
+// die;
 
 // 3. DBへのデータ保存
 $user = new User();
 $user->findByEmail($name, $email, $password);
+// var_dump($member);
+
 
 // リダイレクト
 // header('location:index.php');
