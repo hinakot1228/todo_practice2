@@ -41,6 +41,8 @@ class User extends Model
         $stmt->execute();
 
         $member = $stmt->fetch();
+        // var_dump($member);
+        
 
         if ($member['email'] === $email) {
             $msg = '同じメールアドレスが存在します。';

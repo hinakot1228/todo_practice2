@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(12) NOT NULL,
   `email` varchar(90) NOT NULL,
   `password` text NOT NULL,
-  `created` datetime NOT NULL
+  `created` datetime NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
